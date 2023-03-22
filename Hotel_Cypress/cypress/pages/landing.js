@@ -8,8 +8,8 @@ class HomePage{
     //fill in the booking form
 
     book(){
-    cy.get(elements.firstName).type("Limakatso");
-    cy.get(elements.lastName).type("Ntoba");
+    cy.get(elements.firstN).type("Limakatso");
+    cy.get(elements.lastN).type("Ntoba");
     cy.get(elements.price).type("3800");
 
     //deposit drop down
@@ -24,15 +24,16 @@ class HomePage{
 
     cy.wait(1000);
 
-    cy.get(elements.row).its("length").should("be.gte", 1);
+    cy.get(elements.rows).its("length").should("be.gte", 1);
     }
 
     //delete the booking
     deleteBooking(){
-        cy.get(elements.delete).each(($el, index, $list) => {
+        cy.get(elements.dlt).each(($el, index, $list) => {
             cy.get($el).click({ multiple: true });
     })
     
 
         }
     }
+    export default HomePage;
